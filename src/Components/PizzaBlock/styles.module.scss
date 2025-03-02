@@ -1,0 +1,6 @@
+.pizzaBlock {
+  display: grid;
+  grid-template-columns: 350px 350px 350px 350px 350px;
+  grid-template-rows: 500px auto;
+  width: 100%;
+}

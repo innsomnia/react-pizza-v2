@@ -2,6 +2,7 @@ import { Categories } from '../Components/Categories/Categories'
 import { Header } from '../Components/Header/Header'
 import styles from './styles.module.scss'
 import { Sort } from './../Components/Sort/Sort'
+import { PizzaBlock } from '../Components/PizzaBlock/PizzaBlock'
 
 export const App = () => {
   return (
@@ -11,6 +12,7 @@ export const App = () => {
         <Categories />
         <Sort />
       </div>
+      <PizzaBlock />
     </div>
   )
 }

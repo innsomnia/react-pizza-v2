@@ -1,3 +1,4 @@
+import { Button } from '../ui/Button/Button'
 import styles from './styles.module.scss'
 
 import appIcon from '/pizzaFavicon.png'
@@ -13,7 +14,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <button>Корзина</button>
+      <Button>Корзина</Button>
     </div>
   )
 }
