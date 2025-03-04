@@ -7,7 +7,35 @@
   border-radius: 8px;
   cursor: pointer;
 
+  .img {
+    margin: 0px 5px;
+    width: 16px;
+    height: 16px;
+  }
+
   &:hover {
     background-color: rgb(164, 164, 164);
   }
+}
+
+.containerBtn {
+  display: flex;
+  align-items: center;
+}
+
+.countPizzaCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  background-color: aliceblue;
+  border-radius: 50%;
+}
+
+.countCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

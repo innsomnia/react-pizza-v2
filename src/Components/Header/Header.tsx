@@ -14,7 +14,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <Button>Корзина</Button>
+      <Button variant='countCart'>Корзина</Button>
     </div>
   )
 }

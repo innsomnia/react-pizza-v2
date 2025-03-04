@@ -2,6 +2,7 @@ import styles from './styles.module.scss'
 import { SelectButton } from '../ui/SelectButton/SelectButton'
 import { Button } from '../ui/Button/Button'
 import { PizzasType } from '../../data/pizzas'
+import { useState } from 'react'
 
 interface PizzaCard {
   key: number
@@ -10,8 +11,8 @@ interface PizzaCard {
 
 export const PizzaCard = ({ pizza }: PizzaCard) => {
   const { imageUrl, title, types, sizes, price } = pizza
-
   const pizzaTypes = ['традиционное', 'тонкое']
+  const [pizzaCount, setPizzaCount] = useState(0)
 
   return (
     <div className={styles.pizzaBlock}>
@@ -32,7 +33,9 @@ export const PizzaCard = ({ pizza }: PizzaCard) => {
 
       <div className={styles.bottomBlock}>
         <div className={styles.price}>от {price} ₽</div>
-        <Button>Добавить</Button>
+        <Button pizzaCount={pizzaCount} onClick={() => setPizzaCount((prev) => prev + 1)} variant='countPizzaCard'>
+          Добавить
+        </Button>
       </div>
     </div>
   )
