@@ -1,11 +1,16 @@
 import React from 'react'
-import styles from './styles.module.scss'
 
 interface SelectButton {
   children: React.ReactNode
+  onClick?: () => void
   key: number
+  className: string
 }
 
-export const SelectButton = ({ children }: SelectButton) => {
-  return <button className={styles.button}>{children}</button>
+export const SelectButton = ({ children, onClick, className }: SelectButton) => {
+  return (
+    <button onClick={onClick} className={className}>
+      {children}
+    </button>
+  )
 }

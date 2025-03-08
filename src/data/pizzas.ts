@@ -9,7 +9,7 @@ export type PizzasType = {
   rating: number
 }
 
-export const pizzas: Pizzas[] = [
+export const pizzas: PizzasType[] = [
   {
     id: 0,
     imageUrl: 'https://media.dodostatic.net/image/r:292x292/11ee7d612fc7b7fca5be822752bee1e5.avif',

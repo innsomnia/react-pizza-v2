@@ -1,6 +1,7 @@
 .button {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: rgb(199, 199, 199);
   color: black;
   padding: 15px;
@@ -30,8 +31,24 @@
   width: 20px;
   height: 20px;
   margin-left: 5px;
+  margin-right: 5px;
   background-color: aliceblue;
   border-radius: 50%;
+}
+
+.countDecrement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  background-color: aliceblue;
+  border-radius: 50%;
+
+  &:hover {
+    box-shadow: -2px 5px 5px 3px rgba(0, 0, 0, 0.341);
+  }
 }
 
 .countCart {

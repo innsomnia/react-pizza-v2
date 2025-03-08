@@ -3,16 +3,22 @@ import styles from './styles.module.scss'
 import cartImg from '/public/cart123.svg'
 
 interface Button {
-  children: React.ReactNode
-  onClick?: () => void
-  pizzaCount: number
-  variant: string
+  children?: React.ReactNode
+  addPizzaCart?: () => void
+  removePizzaCart?: (e: React.MouseEvent<HTMLSpanElement>) => void
+  pizzaCount?: number
+  variant?: string
 }
 
-export const Button = ({ children, variant, pizzaCount, onClick }: Button) => {
+export const Button = ({ children, variant, pizzaCount = 0, addPizzaCart, removePizzaCart }: Button) => {
   return (
     <div className={styles.containerBtn}>
-      <button onClick={onClick} className={styles.button}>
+      <button onClick={addPizzaCart} className={styles.button}>
+        {pizzaCount > 0 ? (
+          <span onClick={removePizzaCart} className={styles.countDecrement}>
+            -
+          </span>
+        ) : null}
         {children}
         {variant === 'countCart' ? <img className={styles.img} src={cartImg} alt={'img'} /> : null}
         {pizzaCount > 0 ? (
