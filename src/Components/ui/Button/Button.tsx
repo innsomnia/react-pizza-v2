@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import cartImg from '/public/cart123.svg'
+import cartImg from '/cart123.svg'
 
 interface Button {
   children?: React.ReactNode
