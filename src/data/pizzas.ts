@@ -9,6 +9,12 @@ export type PizzasType = {
   rating: number
 }
 
+export type ErrorState = {
+  message: string
+  code?: string | number
+  status?: number
+}
+
 export const pizzas: PizzasType[] = [
   {
     id: 0,

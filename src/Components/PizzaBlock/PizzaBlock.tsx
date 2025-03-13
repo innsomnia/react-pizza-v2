@@ -1,16 +1,17 @@
 import { PizzaCard } from '../PizzaCard/PizzaCard'
 import styles from './styles.module.scss'
-// import { pizzas } from '../../data/pizzas'
 import { useItems } from '../../hooks/api/useItems'
 
+import { Skeleton } from '../Skeleton/Skeleton'
+
 export const PizzaBlock = () => {
-  const { items } = useItems()
+  const { items, isLoading } = useItems()
 
   return (
     <div className={styles.pizzaBlock}>
-      {items.map((pizza) => (
-        <PizzaCard key={pizza.id} pizza={{ ...pizza }} />
-      ))}
+      {isLoading
+        ? [...new Array(10)].map((_, index) => <Skeleton key={index} props={index} />)
+        : items.map((pizza) => <PizzaCard key={pizza.id} pizza={{ ...pizza }} />)}
     </div>
   )
 }

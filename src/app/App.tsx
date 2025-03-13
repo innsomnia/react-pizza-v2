@@ -1,18 +1,19 @@
-import { Categories } from '../Components/Categories/Categories'
 import { Header } from '../Components/Header/Header'
+import { Cart } from '../Components/pages/Cart/Cart'
+import { Home } from '../Components/pages/Home/Home'
+import { Route, Routes } from 'react-router-dom'
 import styles from './styles.module.scss'
-import { Sort } from './../Components/Sort/Sort'
-import { PizzaBlock } from '../Components/PizzaBlock/PizzaBlock'
+import { ErrorPage } from '../Components/pages/Error/ErrorPage'
 
 export const App = () => {
   return (
     <div className={styles.appContainer}>
       <Header />
-      <div className={styles.menuOfPizzaSort}>
-        <Categories />
-        <Sort />
-      </div>
-      <PizzaBlock />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='*' element={<ErrorPage />} />
+      </Routes>
     </div>
   )
 }
