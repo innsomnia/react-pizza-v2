@@ -1,11 +1,15 @@
 import { PizzaCard } from '../PizzaCard/PizzaCard'
-import styles from './styles.module.scss'
 import { useItems } from '../../hooks/api/useItems'
-
 import { Skeleton } from '../Skeleton/Skeleton'
+import styles from './styles.module.scss'
 
-export const PizzaBlock = () => {
-  const { items, isLoading } = useItems()
+interface PizzaBlock {
+  category: number
+  sort: string
+}
+
+export const PizzaBlock = ({ category, sort }: PizzaBlock) => {
+  const { items, isLoading } = useItems(category, sort)
 
   return (
     <div className={styles.pizzaBlock}>

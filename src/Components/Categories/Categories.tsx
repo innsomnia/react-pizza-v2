@@ -1,23 +1,22 @@
-import { useState } from 'react'
 import styles from './styles.module.scss'
 
-export const Categories = () => {
-  const categoriesNames = ['Все', 'Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']
-  const [classIndex, setClassIndex] = useState(0)
+interface Categories {
+  category: number
+  setCategory: (index: number) => void
+}
 
-  const onClickCategory = (index: number) => {
-    setClassIndex(index)
-  }
+export const Categories = ({ category, setCategory }: Categories) => {
+  const categoriesNames = ['Все', 'Мясные', 'Вегетарианские', 'Гриль', 'Острые', 'Закрытые']
 
   return (
     <div>
       <ul className={styles.categories}>
-        {categoriesNames.map((category, index) => (
+        {categoriesNames.map((categoryName, index) => (
           <li
-            className={classIndex === index ? styles.active : styles.notActive}
-            onClick={() => onClickCategory(index)}
+            className={category === index ? styles.active : styles.notActive}
+            onClick={() => setCategory(index)}
             key={index}>
-            {category}
+            {categoryName}
           </li>
         ))}
       </ul>

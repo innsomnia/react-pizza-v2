@@ -1,26 +1,34 @@
 import { useState } from 'react'
 import styles from './styles.module.scss'
 
-export const Sort = () => {
-  const sortNames = ['популярности', 'цене', 'алфавиту']
+interface Sort {
+  sort: { name: string; sortProperty: string }
+  setSort: (newSort: { name: string; sortProperty: string }) => void
+}
+
+export const Sort = ({ sort, setSort }: Sort) => {
+  const sortTypes = [
+    { name: 'популярности', sortProperty: 'rating' },
+    { name: 'цене', sortProperty: 'price' },
+    { name: 'алфавиту', sortProperty: 'title' },
+  ]
   const [open, setOpen] = useState(false)
-  const [chooseSort, setChooseSort] = useState(sortNames[0])
 
   const handleSort = (index: number) => {
-    setChooseSort(sortNames[index])
+    setSort(sortTypes[index])
     setOpen(!open)
   }
 
   return (
     <div className={styles.sortContainer}>
       <p>Сортировка по:</p>
-      <span onClick={() => setOpen(!open)}>{chooseSort}</span>
+      <span onClick={() => setOpen(!open)}>{sort.name}</span>
       {open && (
         <div className={styles.popUp}>
           <ul className={open ? styles.activeDropdownMenu : styles.dropdownMenu}>
-            {sortNames.map((sortName, index) => (
+            {sortTypes.map((sort, index) => (
               <li onClick={() => handleSort(index)} key={index}>
-                {sortName}
+                {sort.name}
               </li>
             ))}
           </ul>
