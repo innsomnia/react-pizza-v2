@@ -9,8 +9,6 @@ import { useState } from 'react'
 export const App = () => {
   const [searchValue, setSearchValue] = useState('')
 
-  console.log('searchValue HEADER', searchValue)
-
   return (
     <div className={styles.appContainer}>
       <Header searchValue={searchValue} setSearchValue={setSearchValue} />

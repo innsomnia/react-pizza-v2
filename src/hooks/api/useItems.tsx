@@ -13,8 +13,6 @@ export const useItems = ({ category, sort, searchValue }: useItems) => {
   const [items, setItems] = useState<PizzasType[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
-  console.log('searchValue', searchValue)
-
   const { debouncedValue } = useDebounce({ searchValue: searchValue })
 
   const categoryParam = category ? `category=${category}` : ''
