@@ -4,7 +4,11 @@ import { Sort } from '../../Sort/Sort'
 import { PizzaBlock } from '../../PizzaBlock/PizzaBlock'
 import { useState } from 'react'
 
-export const Home = () => {
+interface Home {
+  searchValue: string
+}
+
+export const Home = ({ searchValue }: Home) => {
   const [category, setCategory] = useState(0)
   const [sort, setSort] = useState({ name: 'популярности', sortProperty: 'rating' })
 
@@ -14,7 +18,7 @@ export const Home = () => {
         <Categories category={category} setCategory={(index) => setCategory(index)} />
         <Sort sort={sort} setSort={setSort} />
       </div>
-      <PizzaBlock category={category} sort={sort.sortProperty} />
+      <PizzaBlock searchValue={searchValue} category={category} sort={sort.sortProperty} />
     </div>
   )
 }

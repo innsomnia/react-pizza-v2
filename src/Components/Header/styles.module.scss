@@ -4,12 +4,55 @@
   justify-content: space-between;
 
   img {
-    width: 40px;
-    height: 40px;
+    height: 30px;
   }
 }
 
 .containerTitle {
   display: flex;
   margin-left: 5px;
+}
+
+.myInput {
+  width: 100%;
+  padding: 10px 50px 10px 35px;
+  outline: 1px solid gray;
+  border-radius: 6px;
+  background-color: white;
+
+  &:focus {
+    background-color: rgb(245, 245, 245);
+  }
+}
+
+.inputContainer {
+  position: relative !important;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 60%;
+  padding: 0px 20px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+}
+
+.removeIcon {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  opacity: 1;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }

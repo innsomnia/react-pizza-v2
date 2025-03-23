@@ -6,10 +6,11 @@ import styles from './styles.module.scss'
 interface PizzaBlock {
   category: number
   sort: string
+  searchValue: string
 }
 
-export const PizzaBlock = ({ category, sort }: PizzaBlock) => {
-  const { items, isLoading } = useItems(category, sort)
+export const PizzaBlock = ({ category, sort, searchValue }: PizzaBlock) => {
+  const { items, isLoading } = useItems({ category, sort, searchValue })
 
   return (
     <div className={styles.pizzaBlock}>
