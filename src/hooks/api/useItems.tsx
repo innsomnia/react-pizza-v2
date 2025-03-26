@@ -5,11 +5,13 @@ import { useDebounce } from '../useDebounce'
 
 interface useItems {
   category: number
-  sort: string
+  sort: { sortProperty: string }
   searchValue: string
+  page: number
+  limitOfCount: number
 }
 
-export const useItems = ({ category, sort, searchValue }: useItems) => {
+export const useItems = ({ category, sort, searchValue, page, limitOfCount }: useItems) => {
   const [items, setItems] = useState<PizzasType[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
@@ -18,6 +20,9 @@ export const useItems = ({ category, sort, searchValue }: useItems) => {
   const categoryParam = category ? `category=${category}` : ''
   const sortParam = `&sortBy=${sort}&order=asc`
   const searchParam = debouncedValue ? `&search=${debouncedValue}` : ''
+  const start = page * limitOfCount
+  const end = start + limitOfCount
+  const paginatedItems = items.slice(start, end)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,5 +42,5 @@ export const useItems = ({ category, sort, searchValue }: useItems) => {
     fetchData()
   }, [categoryParam, sortParam, searchParam])
 
-  return { items, isLoading }
+  return { items, isLoading, paginatedItems }
 }
